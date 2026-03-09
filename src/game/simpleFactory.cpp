@@ -1,5 +1,7 @@
 //std
 #include <iostream>
+#include <stdexcept>
+#include <optional>
 
 #include "simpleFactory.hpp"
 
@@ -16,14 +18,17 @@ void Game::initialize() {
 
 void Game::gameloop() {
     while (!window.shouldClose()) {
+        window.pollEvent();
         update();
         render();
     }
 }
+
 void Game::update() {
-    std::cout << "Updating the game..." << std::endl;
 }
 
 void Game::render() {
-    std::cout << "Rendering the game..." << std::endl;
+    window.render();
+    //draw logic here
+    window.display();
 }

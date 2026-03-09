@@ -9,7 +9,7 @@ public:
 
     void run();
 private:
-    SlmlWindow window {WIDTH, HEIGHT, TITLE};
+    SfmlWindow window {WIDTH, HEIGHT, TITLE};
     
     void initialize();
 

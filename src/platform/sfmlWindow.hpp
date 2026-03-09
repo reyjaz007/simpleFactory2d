@@ -1,20 +1,31 @@
+//sfml
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
-class SlmlWindow {
+
+class SfmlWindow {
 private:
     unsigned int WIDTH;
     unsigned int HEIGHT;
     std::string TITLE;
 
-    sf::RenderWindow* window;
+    sf::RenderWindow *window;
+    sf::Event event;
 
     void initWindow(const unsigned int width, const unsigned int height, const std::string &title);
+    void rezised();
+
+    void eventSwitch();
    
 public:
+    void pollEvent();
     bool shouldClose();
 
-    SlmlWindow(const unsigned int width, const unsigned int height, const std::string &title);
-    ~SlmlWindow();
+    void render();
+    void display();
+
+    SfmlWindow(const unsigned int width, const unsigned int height, const std::string &title);
+    ~SfmlWindow();
 };
 
 
