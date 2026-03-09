@@ -1,0 +1,34 @@
+# VSCode
+.vscode/
+
+# CMake
+build/
+out/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CMakeUserPresets.json
+
+#libs
+/external
+
+# C++ build outputs
+*.exe
+*.o
+*.obj
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+
+# Build directories
+Debug/
+Release/
+x64/
+Win32/
+
+# Temporary files
+*.tmp
+*.temp
+*~
