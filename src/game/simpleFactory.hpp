@@ -7,6 +7,8 @@ public:
     const unsigned int HEIGHT = 720;
     const std::string TITLE = "Simple Factory 2D";
 
+    Game();
+    virtual ~Game();
     void run();
 private:
     SfmlWindow window {WIDTH, HEIGHT, TITLE};

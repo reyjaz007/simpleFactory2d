@@ -10,16 +10,18 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
     this->WIDTH = width;
     this->HEIGHT = height;
     this->TITLE = title;
+    this->isFullscreen = false;
 
     initWindow(WIDTH, HEIGHT, TITLE);
 }
 
 SfmlWindow::~SfmlWindow() {
     delete window;
+    window->~RenderWindow();
 }
 
 void SfmlWindow::initWindow(const unsigned int width, const unsigned int height, const std::string &title) {
-    window = new sf::RenderWindow(sf::VideoMode({width, height}), title);
+    window = new sf::RenderWindow(sf::VideoMode({width, height}), title, sf::Style::Default);
     if (window == NULL) {
         throw std::runtime_error("Failed to create the window.");
     }
@@ -52,6 +54,7 @@ void SfmlWindow::eventSwitch(){
     switch(event.type) {
         case sf::Event::Closed:
             window->close();
+            throw std::runtime_error("Window closed by user.");
             break;  
 
         case sf::Event::Resized:
@@ -63,6 +66,19 @@ void SfmlWindow::eventSwitch(){
 
         case sf::Event::GainedFocus:
             break;
+
+        case sf::Event::KeyPressed:
+            if (event.key.code == sf::Keyboard::F11){
+                if (isFullscreen) {
+                    window->create(sf::VideoMode({WIDTH, HEIGHT}), TITLE, sf::Style::Default);
+                    isFullscreen = false;
+                    rezised();
+                } else {
+                    window->create(sf::VideoMode::getDesktopMode(), TITLE, sf::Style::Fullscreen);
+                    isFullscreen = true;
+                    rezised();
+                }
+            }
+            break;
     }
 }
-

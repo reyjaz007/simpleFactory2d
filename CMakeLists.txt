@@ -7,6 +7,7 @@ add_executable(simpleFactory2d
     src/main/main.cpp
     src/game/simpleFactory.cpp
     src/platform/sfmlWindow.cpp
+    src/entities/entity.cpp
 )
 
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML/lib/cmake/SFML")

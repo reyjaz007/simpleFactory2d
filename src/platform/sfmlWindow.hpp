@@ -8,9 +8,11 @@ private:
     unsigned int WIDTH;
     unsigned int HEIGHT;
     std::string TITLE;
+    bool isFullscreen;
 
     sf::RenderWindow *window;
     sf::Event event;
+
 
     void initWindow(const unsigned int width, const unsigned int height, const std::string &title);
     void rezised();

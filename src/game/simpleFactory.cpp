@@ -5,10 +5,14 @@
 
 #include "simpleFactory.hpp"
 
+Game::Game() {
+}
+
+Game::~Game() {
+}
 
 void Game::run() {
     initialize();
-    gameloop();
 }
 
 void Game::initialize() {
@@ -22,6 +26,7 @@ void Game::gameloop() {
         update();
         render();
     }
+
 }
 
 void Game::update() {
