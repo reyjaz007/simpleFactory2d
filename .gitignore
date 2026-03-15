@@ -10,7 +10,7 @@ cmake_install.cmake
 CMakeUserPresets.json
 
 #libs
-/external
+/external/SFML/
 
 # C++ build outputs
 *.exe
