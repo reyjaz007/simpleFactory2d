@@ -16,8 +16,8 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
 }
 
 SfmlWindow::~SfmlWindow() {
-    delete window;
     window->~RenderWindow();
+    delete window;
 }
 
 void SfmlWindow::initWindow(const unsigned int width, const unsigned int height, const std::string &title) {

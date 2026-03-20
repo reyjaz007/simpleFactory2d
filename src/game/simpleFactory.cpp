@@ -3,6 +3,8 @@
 #include <stdexcept>
 #include <optional>
 
+#include "../entities/entitiesHandler.hpp"
+
 #include "simpleFactory.hpp"
 
 Game::Game() {
@@ -19,7 +21,6 @@ void Game::initialize() {
     gameloop();
 }
 
-
 void Game::gameloop() {
     while (!window.shouldClose()) {
         window.pollEvent();
@@ -30,10 +31,11 @@ void Game::gameloop() {
 }
 
 void Game::update() {
+    entities.update();
 }
 
 void Game::render() {
     window.render();
-    //draw logic here
+    entities.render();
     window.display();
 }

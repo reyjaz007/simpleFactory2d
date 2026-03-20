@@ -1,5 +1,8 @@
+#pragma once
+
 #include <iostream>
 #include "../platform/sfmlWindow.hpp"
+#include "../entities/entitiesHandler.hpp"
 
 class Game {
 public:
@@ -12,6 +15,8 @@ public:
     void run();
 private:
     SfmlWindow window {WIDTH, HEIGHT, TITLE};
+
+    Entities entities;
     
     void initialize();
 
