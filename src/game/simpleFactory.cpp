@@ -14,14 +14,10 @@ Game::~Game() {
 }
 
 void Game::run() {
-    initialize();
+    gameLoop();
 }
 
-void Game::initialize() {
-    gameloop();
-}
-
-void Game::gameloop() {
+void Game::gameLoop() {
     while (!window.shouldClose()) {
         window.pollEvent();
         update();
@@ -36,6 +32,6 @@ void Game::update() {
 
 void Game::render() {
     window.render();
-    entities.render();
+    window.draw(entities.getPlayerSprite());
     window.display();
 }

@@ -19,10 +19,17 @@ Entity::~Entity() {
     delete texture;
 }
 
+void Entity::draw() {
+    sprite->setPosition(100, 100); // Example position   
+    sprite->setScale(1.0f, 1.0f); // Example scale
+    std::cout << "Entity drawn." << std::endl; 
+}
+
 void Entity::update() {
     std::cout << "Entity updated." << std::endl;
 }
 
 void Entity::render() {
+    draw();
     std::cout << "Entity rendered." << std::endl;
 }

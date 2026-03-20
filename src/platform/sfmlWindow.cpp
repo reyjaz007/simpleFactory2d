@@ -28,14 +28,18 @@ void SfmlWindow::initWindow(const unsigned int width, const unsigned int height,
 }
 
 void SfmlWindow::render() {
-    window->clear(sf::Color::Black);
+    window->clear(sf::Color::White);
+}
+
+void SfmlWindow::draw(sf::Sprite &sprite) {
+    window->draw(sprite);
 }
 
 void SfmlWindow::display(){
     window->display();
 }
 
-void SfmlWindow::rezised() {
+void SfmlWindow::resize() {
     sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
     window->setView(sf::View(visibleArea));
 }
@@ -58,7 +62,7 @@ void SfmlWindow::eventSwitch(){
             break;  
 
         case sf::Event::Resized:
-            rezised();
+            resize();
             break;
 
         case sf::Event::LostFocus:
@@ -72,11 +76,11 @@ void SfmlWindow::eventSwitch(){
                 if (isFullscreen) {
                     window->create(sf::VideoMode({WIDTH, HEIGHT}), TITLE, sf::Style::Default);
                     isFullscreen = false;
-                    rezised();
+                    resize();
                 } else {
                     window->create(sf::VideoMode::getDesktopMode(), TITLE, sf::Style::Fullscreen);
                     isFullscreen = true;
-                    rezised();
+                    resize();
                 }
             }
             break;

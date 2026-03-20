@@ -17,7 +17,7 @@ private:
 
 
     void initWindow(const unsigned int width, const unsigned int height, const std::string &title);
-    void rezised();
+    void resize();
 
     void eventSwitch();
    
@@ -25,6 +25,7 @@ public:
     void pollEvent();
     bool shouldClose();
 
+    void draw(sf::Sprite &sprite);
     void render();
     void display();
 

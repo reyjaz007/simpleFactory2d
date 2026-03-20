@@ -18,9 +18,7 @@ private:
 
     Entities entities;
     
-    void initialize();
-
-    void gameloop();
+    void gameLoop();
     
     void update();
     void render();

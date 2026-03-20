@@ -11,6 +11,10 @@ Entities::~Entities() {
     delete player;
 }
 
+sf::Sprite &Entities::getPlayerSprite() {
+    return *player->sprite;
+}
+
 void Entities::render(){
     player->render();
 }
