@@ -14,11 +14,14 @@ private:
 
     sf::RenderWindow *window;
     sf::Event event;
+    sf::Image icon;
 
 
     void initWindow(const unsigned int width, const unsigned int height, const std::string &title);
-    void resize();
+    
+    void setImageIcon();
 
+    void resize();
     void eventSwitch();
    
 public:

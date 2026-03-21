@@ -20,8 +20,8 @@ Entity::~Entity() {
 }
 
 void Entity::draw() {
-    sprite->setPosition(100, 100); // Example position   
-    sprite->setScale(1.0f, 1.0f); // Example scale
+    sprite->setPosition(200, 100); // Example position   
+    sprite->setScale(2.0f, 2.0f); // Example scale
     std::cout << "Entity drawn." << std::endl; 
 }
 

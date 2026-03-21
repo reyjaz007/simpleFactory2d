@@ -20,8 +20,8 @@ void Game::run() {
 void Game::gameLoop() {
     while (!window.shouldClose()) {
         window.pollEvent();
-        update();
         render();
+        update();
     }
 
 }

@@ -25,6 +25,14 @@ void SfmlWindow::initWindow(const unsigned int width, const unsigned int height,
     if (window == NULL) {
         throw std::runtime_error("Failed to create the window.");
     }
+    setImageIcon();
+}
+
+void SfmlWindow::setImageIcon() {
+    if (!icon.loadFromFile("assets/logo/logo.png")) {
+        throw std::runtime_error("Failed to load the window icon.");
+    }
+    window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 void SfmlWindow::render() {
