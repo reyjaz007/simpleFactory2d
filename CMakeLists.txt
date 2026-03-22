@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(simpleFactory2d VERSION 0.1.0 LANGUAGES CXX)
 
-# Find SFML
 
 add_executable(simpleFactory2d
     src/main/main.cpp
@@ -11,6 +10,8 @@ add_executable(simpleFactory2d
     src/entities/player/player.cpp
     src/entities/entitiesHandler.cpp
 )
+
+# Find SFML
 
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML/lib/cmake/SFML")
 
