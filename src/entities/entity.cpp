@@ -5,23 +5,20 @@
 
 Entity::Entity(const std::string &path) : PATH(path) {
     // Load the texture and set it to the sprite
-    texture = new sf::Texture();
-    if (!texture->loadFromFile(PATH)) {
-        throw std::runtime_error("Failed to load texture ");
+    if (!texture.loadFromFile(PATH)) {
+        throw std::runtime_error("Failed to load entity texture ");
     } else {
-        sprite->setTexture(*texture);
+        sprite.setTexture(texture);
     }
 
 }
 
 Entity::~Entity() {
-    delete sprite;
-    delete texture;
 }
 
 void Entity::draw() {
-    sprite->setPosition(200, 100); // Example position   
-    sprite->setScale(2.0f, 2.0f); // Example scale
+    sprite.setPosition(200, 100); // Example position   
+    sprite.setScale(2.0f, 2.0f); // Example scale
     std::cout << "Entity drawn." << std::endl; 
 }
 

@@ -28,7 +28,7 @@ public:
     void pollEvent();
     bool shouldClose();
 
-    void draw(sf::Sprite &sprite);
+    void draw(sf::Sprite sprite);
     void render();
     void display();
 

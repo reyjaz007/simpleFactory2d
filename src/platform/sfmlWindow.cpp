@@ -39,7 +39,7 @@ void SfmlWindow::render() {
     window->clear(sf::Color::White);
 }
 
-void SfmlWindow::draw(sf::Sprite &sprite) {
+void SfmlWindow::draw(sf::Sprite sprite) {
     window->draw(sprite);
 }
 

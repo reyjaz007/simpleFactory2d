@@ -9,6 +9,7 @@ add_executable(simpleFactory2d
     src/entities/entity.cpp
     src/entities/player/player.cpp
     src/entities/entitiesHandler.cpp
+    src/entities/tile.cpp
 )
 
 # Find SFML

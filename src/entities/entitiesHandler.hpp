@@ -11,9 +11,9 @@ public:
     void update();
     void render();
 
-    sf::Sprite &getPlayerSprite();
+    sf::Sprite getPlayerSprite();
 
 private:
-    Player *player;
-
+    Player player = Player();
+    
 };

@@ -5,12 +5,12 @@
 
  class Entity {
 protected:
-    const std::string PATH;
-    sf::Texture *texture;
+    const std::string PATH = " ";
+    sf::Texture texture = sf::Texture();
 
 public:
 
-    sf::Sprite *sprite = new sf::Sprite();
+    sf::Sprite sprite;
 
     void update();
     void render();
