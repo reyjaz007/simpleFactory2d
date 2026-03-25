@@ -3,8 +3,13 @@
  #include <iostream>
  #include "SFML/Graphics.hpp"
 
- class Entity {
+ class Entity {    
+private:
+    int updatePos(int xy);
+
 protected:
+    int posX, posY;
+
     const std::string PATH = " ";
     sf::Texture texture = sf::Texture();
 

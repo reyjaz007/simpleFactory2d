@@ -10,6 +10,7 @@ add_executable(simpleFactory2d
     src/entities/player/player.cpp
     src/entities/entitiesHandler.cpp
     src/entities/tile.cpp
+    src/logic/event.cpp
 )
 
 # Find SFML
@@ -23,3 +24,7 @@ target_link_libraries(simpleFactory2d
     sfml-window
     sfml-system
 )
+
+#copy assets to build directory
+
+file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})

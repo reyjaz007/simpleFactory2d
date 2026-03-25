@@ -8,9 +8,11 @@
 #include "simpleFactory.hpp"
 
 Game::Game() {
+
 }
 
 Game::~Game() {
+
 }
 
 void Game::run() {
@@ -18,15 +20,22 @@ void Game::run() {
 }
 
 void Game::gameLoop() {
+    int n = 0;
+
     while (!window.shouldClose()) {
         window.pollEvent();
+
+        float deltaTime = clock.restart().asSeconds();
+
         render();
-        update();
+        std::cout << n;
+        update(deltaTime);
+        n++;
     }
 
 }
 
-void Game::update() {
+void Game::update(float deltaTime) {
     entities.update();
 }
 

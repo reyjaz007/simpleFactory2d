@@ -17,16 +17,20 @@ Entity::~Entity() {
 }
 
 void Entity::draw() {
-    sprite.setPosition(200, 100); // Example position   
+    sprite.setPosition(posX, posY); // Example position   
     sprite.setScale(2.0f, 2.0f); // Example scale
-    std::cout << "Entity drawn." << std::endl; 
 }
 
 void Entity::update() {
+    updatePos(posX);
     std::cout << "Entity updated." << std::endl;
 }
 
 void Entity::render() {
     draw();
     std::cout << "Entity rendered." << std::endl;
+}
+
+int Entity::updatePos(int xy){
+    return xy + 10;
 }

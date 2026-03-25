@@ -18,8 +18,9 @@ private:
 
     Entities entities;
     
+    sf::Clock clock;
     void gameLoop();
     
-    void update();
+    void update(float deltaTime);
     void render();
 };

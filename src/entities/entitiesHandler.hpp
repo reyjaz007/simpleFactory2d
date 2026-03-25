@@ -6,7 +6,7 @@
 class Entities {
 public:
     Entities();
-    ~Entities();
+    virtual ~Entities();
 
     void update();
     void render();

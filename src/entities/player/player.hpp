@@ -7,9 +7,9 @@ private:
     int health = 100;
     std::vector<int> *inventory;
 
+public:
     void drawCharacter();
 
-public:
     Player();
     virtual ~Player();
 };

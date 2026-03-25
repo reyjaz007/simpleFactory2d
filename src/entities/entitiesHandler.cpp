@@ -5,7 +5,7 @@ Entities::Entities() {
     //Init Entities
 }
 
-Entities::~Entities() {
+ Entities::~Entities() {
     //Delete Entities
 }
 
@@ -14,7 +14,7 @@ sf::Sprite Entities::getPlayerSprite() {
 }
 
 void Entities::render(){
-    player.render();
+    player.drawCharacter();
 }
 
 void Entities::update() {

@@ -1,7 +1,8 @@
 #include "player.hpp"
 
 Player::Player() : Entity("assets/entities/player.png") {
-    drawCharacter();
+    posX = 200;
+    posY = 200;
 }
 
 Player::~Player() {
@@ -10,3 +11,4 @@ Player::~Player() {
 void Player::drawCharacter() {
     Entity::draw();
 }
+
