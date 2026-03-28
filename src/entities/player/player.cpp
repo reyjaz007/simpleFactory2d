@@ -6,9 +6,27 @@ Player::Player() : Entity("assets/entities/player.png") {
 }
 
 Player::~Player() {
+    delete inventory;
 }
 
-void Player::drawCharacter() {
-    Entity::draw();
+// Movement functions    
+
+void Player::moveUp() {
+    posY -= 10;
 }
+
+void Player::moveDown() {
+    posY += 10;
+}
+
+void Player::moveLeft() {
+    posX -= 10;
+}
+
+void Player::moveRight() {
+    posX += 10;
+}
+
+
+
 

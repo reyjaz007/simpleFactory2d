@@ -16,21 +16,13 @@ Entity::Entity(const std::string &path) : PATH(path) {
 Entity::~Entity() {
 }
 
-void Entity::draw() {
-    sprite.setPosition(posX, posY); // Example position   
-    sprite.setScale(2.0f, 2.0f); // Example scale
-}
-
 void Entity::update() {
-    updatePos(posX);
-    std::cout << "Entity updated." << std::endl;
+    sprite.setPosition(posX, posY); // Update the sprite's position based on the entity's position
 }
 
 void Entity::render() {
-    draw();
+    sprite.setPosition(posX, posY); // Example position   
+    sprite.setScale(1.5f, 1.5f); // Example scale
     std::cout << "Entity rendered." << std::endl;
 }
 
-int Entity::updatePos(int xy){
-    return xy + 10;
-}

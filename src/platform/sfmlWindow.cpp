@@ -17,6 +17,7 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
 
 SfmlWindow::~SfmlWindow() {
     window->~RenderWindow();
+    window = nullptr;
     delete window;
 }
 
@@ -35,7 +36,7 @@ void SfmlWindow::setImageIcon() {
     window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
-void SfmlWindow::render() {
+void SfmlWindow::clear() {
     window->clear(sf::Color::White);
 }
 

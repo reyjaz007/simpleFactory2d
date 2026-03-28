@@ -14,9 +14,9 @@ sf::Sprite Entities::getPlayerSprite() {
 }
 
 void Entities::render(){
-    player.drawCharacter();
+    player.render();
 }
 
-void Entities::update() {
+void Entities::update(float deltaTime) {
     player.update();
 }

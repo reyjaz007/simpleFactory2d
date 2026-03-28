@@ -8,12 +8,10 @@ public:
     Entities();
     virtual ~Entities();
 
-    void update();
+    void update(float deltaTime);
     void render();
 
     sf::Sprite getPlayerSprite();
 
-private:
     Player player = Player();
-    
 };

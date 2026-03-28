@@ -3,10 +3,7 @@
  #include <iostream>
  #include "SFML/Graphics.hpp"
 
- class Entity {    
-private:
-    int updatePos(int xy);
-
+class Entity {    
 protected:
     int posX, posY;
 
@@ -19,7 +16,6 @@ public:
 
     void update();
     void render();
-    void draw();
 
     Entity(const std::string &path);
     virtual ~Entity();

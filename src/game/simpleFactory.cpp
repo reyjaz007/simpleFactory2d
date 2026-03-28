@@ -4,6 +4,7 @@
 #include <optional>
 
 #include "../entities/entitiesHandler.hpp"
+#include "../logic/event.hpp"
 
 #include "simpleFactory.hpp"
 
@@ -21,14 +22,14 @@ void Game::run() {
 
 void Game::gameLoop() {
     int n = 0;
-
+    Event event(entities);
     while (!window.shouldClose()) {
         window.pollEvent();
 
         float deltaTime = clock.restart().asSeconds();
 
         render();
-        std::cout << n;
+        std::cout << n << "\n";
         update(deltaTime);
         n++;
     }
@@ -36,11 +37,12 @@ void Game::gameLoop() {
 }
 
 void Game::update(float deltaTime) {
-    entities.update();
+    entities.update(deltaTime);
 }
 
 void Game::render() {
-    window.render();
+    window.clear();
+    entities.render();
     window.draw(entities.getPlayerSprite());
     window.display();
 }

@@ -4,11 +4,18 @@
 
 class Player : public Entity {
 private:
+
     int health = 100;
     std::vector<int> *inventory;
 
 public:
-    void drawCharacter();
+
+    //movement functions
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+
 
     Player();
     virtual ~Player();
