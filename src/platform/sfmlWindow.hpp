@@ -37,5 +37,3 @@ public:
     SfmlWindow(const unsigned int width, const unsigned int height, const std::string &title);
     ~SfmlWindow();
 };
-
-

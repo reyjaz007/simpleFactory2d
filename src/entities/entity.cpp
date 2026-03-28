@@ -25,4 +25,3 @@ void Entity::render() {
     sprite.setScale(1.5f, 1.5f); // Example scale
     std::cout << "Entity rendered." << std::endl;
 }
-

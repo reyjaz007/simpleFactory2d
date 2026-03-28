@@ -6,6 +6,8 @@ Player::Player() : Entity("assets/entities/player.png") {
 }
 
 Player::~Player() {
+    inventory->clear();
+    inventory = nullptr;
     delete inventory;
 }
 
@@ -26,7 +28,3 @@ void Player::moveLeft() {
 void Player::moveRight() {
     posX += 10;
 }
-
-
-
-
