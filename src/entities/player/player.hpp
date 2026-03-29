@@ -1,22 +1,10 @@
 #pragma once 
 
 #include "../entity.hpp"
+#include "../../logic/movement/movement.hpp"
 
-class Player : public Entity {
-private:
-
-    int health = 100;
-    std::vector<int> *inventory;
-
+class Player : public Entity, public Movement {
 public:
-
-    //movement functions
-    void moveUp();
-    void moveDown();
-    void moveLeft();
-    void moveRight();
-
-
-    Player();
+    Player(float deltaTime);
     virtual ~Player();
 };

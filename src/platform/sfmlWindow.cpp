@@ -16,8 +16,6 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
 }
 
 SfmlWindow::~SfmlWindow() {
-    window->~RenderWindow();
-    window = nullptr;
     delete window;
 }
 

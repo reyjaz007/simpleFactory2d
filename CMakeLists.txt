@@ -11,6 +11,7 @@ add_executable(simpleFactory2d
     src/entities/entitiesHandler.cpp
     src/entities/tile.cpp
     src/logic/event.cpp
+    src/logic/movement/movement.cpp
 )
 
 # Find SFML
