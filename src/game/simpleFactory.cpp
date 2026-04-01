@@ -42,7 +42,6 @@ void Game::update(float deltaTime) {
 
 void Game::render() {
     window.clear();
-    entities.render();
     window.draw(entities.getPlayerSprite());
     window.display();
 }

@@ -5,7 +5,7 @@
 
 class Entity {    
 protected:
-    int posX, posY;
+    float deltaTime;
 
     const std::string PATH = " ";
     sf::Texture texture = sf::Texture();
@@ -14,8 +14,8 @@ public:
 
     sf::Sprite sprite;
 
-    void update();
-    void render();
+    void update(float deltaTime);
+   
 
     Entity(const std::string &path);
     virtual ~Entity();

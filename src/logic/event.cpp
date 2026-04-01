@@ -9,23 +9,23 @@ Event::~Event() {
     delete entities;
 }
 
-void Event::pollEvent() {
+void Event::pollEvent(float deltaTime) {
     switch (event.KeyPressed)
     {
     case sf::Keyboard::W:
-        entities->player.moveUp();
+        entities->player.moveUp(deltaTime);
         break;
 
     case sf::Keyboard::S:
-        entities->player.moveDown();
+        entities->player.moveDown(deltaTime);
         break;
 
     case sf::Keyboard::A:
-        entities->player.moveLeft();
+        entities->player.moveLeft(deltaTime);
         break;
 
     case sf::Keyboard::D:
-        entities->player.moveRight();
+        entities->player.moveRight(deltaTime);
         break;
 
     default:

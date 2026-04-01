@@ -2,20 +2,26 @@
 
 #include "../../entities/player/player.hpp"
 
-// Movement functions    
+Movement::Movement() {
 
-void Movement::moveUp() {
+}
+
+Movement::~Movement() {
+
+}
+
+void Movement::moveUp(float deltaTime) {
     posY -= speed * deltaTime;
 }
 
-void Movement::moveDown() {
+void Movement::moveDown(float deltaTime) {
     posY += speed * deltaTime;
 }
 
-void Movement::moveLeft() {
+void Movement::moveLeft(float deltaTime) {
     posX -= speed * deltaTime;
 }
 
-void Movement::moveRight() {
+void Movement::moveRight(float deltaTime) {
     posX += speed * deltaTime;
 }

@@ -5,6 +5,6 @@
 
 class Player : public Entity, public Movement {
 public:
-    Player(float deltaTime);
+    Player();
     virtual ~Player();
 };

@@ -12,5 +12,5 @@ public:
     Event(Entities &entities);
     virtual ~Event();
     
-    void pollEvent();
+    void pollEvent(float deltaTime);
 };
