@@ -1,7 +1,6 @@
 #include "entity.hpp"
 
 #include <exception>
-#include <iostream>
 
 Entity::Entity(const std::string &path) : PATH(path) {
     // Load the texture and set it to the sprite
@@ -14,8 +13,4 @@ Entity::Entity(const std::string &path) : PATH(path) {
 }
 
 Entity::~Entity() {
-}
-
-void Entity::update(float deltaTime) {
-    this->deltaTime = deltaTime;
 }

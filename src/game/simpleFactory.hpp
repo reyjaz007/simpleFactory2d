@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "../platform/sfmlWindow.hpp"
-#include "../entities/entitiesHandler.hpp"
+#include "../entities/handlers/entitiesHandler.hpp"
 
 class Game {
 public:
@@ -17,7 +17,7 @@ private:
     SfmlWindow window {WIDTH, HEIGHT, TITLE};
 
     Entities entities;
-    
+
     sf::Clock clock;
     void gameLoop();
     

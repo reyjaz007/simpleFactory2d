@@ -1,13 +1,12 @@
 #pragma once
 
-#include "player/player.hpp"
+#include "../player/player.hpp"
 
 
 class Entities {
 private:
     float deltaTime;
 
-    
 public:
     Entities();
     virtual ~Entities();

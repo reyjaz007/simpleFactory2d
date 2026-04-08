@@ -8,7 +8,7 @@ add_executable(simpleFactory2d
     src/platform/sfmlWindow.cpp
     src/entities/entity.cpp
     src/entities/player/player.cpp
-    src/entities/entitiesHandler.cpp
+    src/entities/handlers/entitiesHandler.cpp
     src/entities/tile.cpp
     src/logic/event.cpp
     src/logic/movement/movement.cpp

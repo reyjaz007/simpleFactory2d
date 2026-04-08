@@ -2,15 +2,20 @@
 
 class Movement {
     int speed = 10;
-    float posX = 0.0f;
-    float posY = 0.0f;
+    
+    float deltaTime;
 
 public:
 
-    void moveUp(float deltaTime);
-    void moveDown(float deltaTime);
-    void moveLeft(float deltaTime);
-    void moveRight(float deltaTime);
+    float posX = 0.0f;
+    float posY = 0.0f;
+
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+
+    void getDeltaTime(float deltaTime);
 
     Movement();
     virtual ~Movement();

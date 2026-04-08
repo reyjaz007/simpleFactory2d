@@ -10,18 +10,22 @@ Movement::~Movement() {
 
 }
 
-void Movement::moveUp(float deltaTime) {
+void Movement::moveUp() {
     posY -= speed * deltaTime;
 }
 
-void Movement::moveDown(float deltaTime) {
+void Movement::moveDown() {
     posY += speed * deltaTime;
 }
 
-void Movement::moveLeft(float deltaTime) {
+void Movement::moveLeft() {
     posX -= speed * deltaTime;
 }
 
-void Movement::moveRight(float deltaTime) {
+void Movement::moveRight() {
     posX += speed * deltaTime;
+}
+
+void Movement::getDeltaTime(float deltaTime) {
+    this->deltaTime = deltaTime;
 }

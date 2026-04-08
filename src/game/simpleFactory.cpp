@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <optional>
 
-#include "../entities/entitiesHandler.hpp"
+#include "../entities/handlers/entitiesHandler.hpp"
 #include "../logic/event.hpp"
 
 #include "simpleFactory.hpp"
@@ -21,19 +21,18 @@ void Game::run() {
 }
 
 void Game::gameLoop() {
-    int n = 0;
+
     Event event(entities);
+
     while (!window.shouldClose()) {
-        window.pollEvent();
+        window.pollEvent(event);
 
         float deltaTime = clock.restart().asSeconds();
 
+        entities.getDeltaTime(deltaTime);
         render();
-        std::cout << n << "\n";
         update(deltaTime);
-        n++;
     }
-
 }
 
 void Game::update(float deltaTime) {

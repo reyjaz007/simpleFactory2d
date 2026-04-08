@@ -1,5 +1,6 @@
 // SFML - Simple and Fast Multimedia Library
 #include <SFML/Graphics.hpp>
+#include "../logic/event.hpp"
 
 //std
 #include <optional>
@@ -55,9 +56,10 @@ bool SfmlWindow::shouldClose() {
     return !window->isOpen();
 }
 
-void SfmlWindow::pollEvent() {
+void SfmlWindow::pollEvent(Event keyboardEvent) {
     while(window->pollEvent(event)) {
         eventSwitch();
+        keyboardEvent.keyboardSwitch();
     }
 }
 
