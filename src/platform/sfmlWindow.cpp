@@ -14,6 +14,7 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
     this->isFullscreen = false;
 
     initWindow(WIDTH, HEIGHT, TITLE);
+    window->setFramerateLimit(15);
 }
 
 SfmlWindow::~SfmlWindow() {

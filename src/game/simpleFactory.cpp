@@ -25,6 +25,7 @@ void Game::gameLoop() {
     Event event(entities);
 
     while (!window.shouldClose()) {
+        
         window.pollEvent(event);
 
         deltaTime = clock.restart().asSeconds();
