@@ -25,16 +25,12 @@ void Game::gameLoop() {
     Event event(entities);
 
     while (!window.shouldClose()) {
-        
+        deltaTime = clock.restart().asSeconds();
+
         window.pollEvent(event);
 
-        deltaTime = clock.restart().asSeconds();
-        if (sf::Keyboard::W) {
-            entities.player.moveUp();
-        }
-
-        render();
         update(deltaTime);
+        render();
     }
 }
 

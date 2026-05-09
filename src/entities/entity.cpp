@@ -15,6 +15,6 @@ Entity::Entity(const std::string &path) : PATH(path) {
 Entity::~Entity() {
 }
  
-void Entity::update(float deltaTime) {
-
+void Entity::update(sf::Vector2f movement) {
+    sprite.move(movement);
 }

@@ -10,8 +10,8 @@ protected:
 
 public:
     sf::Sprite sprite;
-
-    virtual void update(float deltaTime);
+    
+    void update(sf::Vector2f movement);
 
     Entity(const std::string &path);
     virtual ~Entity();

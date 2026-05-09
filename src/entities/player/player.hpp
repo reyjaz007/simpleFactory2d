@@ -4,10 +4,7 @@
 #include "../../logic/movement/movement.hpp"
 
 class Player : public Entity, public Movement {
-public:
-
-    void update(float deltaTime) override;
-    
+public:    
     Player();
     virtual ~Player();
 };

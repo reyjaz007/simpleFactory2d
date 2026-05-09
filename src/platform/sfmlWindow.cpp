@@ -14,7 +14,6 @@ SfmlWindow::SfmlWindow(const unsigned int width, const unsigned int height, cons
     this->isFullscreen = false;
 
     initWindow(WIDTH, HEIGHT, TITLE);
-    window->setFramerateLimit(15);
 }
 
 SfmlWindow::~SfmlWindow() {
@@ -64,6 +63,8 @@ void SfmlWindow::pollEvent(Event keyboardEvent) {
 }
 
 void SfmlWindow::eventSwitch(Event keyboardEvent) {
+    keyboardEvent.playerMove();
+    
     switch(event.type) {
         case sf::Event::Closed:
             window->close();
@@ -91,8 +92,6 @@ void SfmlWindow::eventSwitch(Event keyboardEvent) {
                     isFullscreen = true;
                     resize();
                 }
-            } else{
-                keyboardEvent.keyboardSwitch(event);
             }
             break;
     }

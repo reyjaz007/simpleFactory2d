@@ -11,5 +11,5 @@ public:
     Event(Entities &entities);
     virtual ~Event();
 
-    void keyboardSwitch(sf::Event event);    
+    void playerMove();    
 };

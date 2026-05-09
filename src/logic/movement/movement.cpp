@@ -1,5 +1,7 @@
 #include "movement.hpp"
 
+#include <SFML/System/Vector2.hpp>
+
 #include "../../entities/player/player.hpp"
 
 Movement::Movement() {
@@ -10,21 +12,20 @@ Movement::~Movement() {
 
 }
 
-void Movement::moveUp() {
-    posY -= speed * deltaTime;
-    std::cout << "posY: " << posY << "\n";
+sf::Vector2f Movement::moveUp() {
+    return sf::Vector2f(0.0f, -(speed * deltaTime));
 }
 
-void Movement::moveDown() {
-    posY += speed * deltaTime;
+sf::Vector2f Movement::moveDown() {
+    return sf::Vector2f(0.0f, speed * deltaTime);
 }
 
-void Movement::moveLeft() {
-    posX -= speed * deltaTime;
+sf::Vector2f Movement::moveLeft() {
+    return sf::Vector2f(-(speed * deltaTime), 0.0f);
 }
 
-void Movement::moveRight() {
-    posX += speed * deltaTime;
+sf::Vector2f Movement::moveRight() {
+    return sf::Vector2f(speed * deltaTime, 0.0f);
 }
 
 void Movement::getDeltaTime(float deltaTime) {

@@ -1,19 +1,23 @@
 #pragma once
 
+#include <SFML/System/Vector2.hpp>
+
 class Movement {
-    int speed = 10;
+private:
+    float speed = 100.0f;
     
     float deltaTime;
 
+protected:
+    float posX;
+    float posY;
+
 public:
 
-    float posX = 0.0f;
-    float posY = 0.0f;
-
-    void moveUp();
-    void moveDown();
-    void moveLeft();
-    void moveRight();
+    sf::Vector2f moveUp();
+    sf::Vector2f moveDown();
+    sf::Vector2f moveLeft();
+    sf::Vector2f moveRight();
 
     void getDeltaTime(float deltaTime);
 

@@ -19,5 +19,4 @@ void Entities::getDeltaTime(float deltaTime) {
     player.getDeltaTime(deltaTime);
 
     std::cout << "deltaTime: " << deltaTime << "\n";
-    std::cout << "x: " << player.posX << " y: " << player.posY << "\n";
 }

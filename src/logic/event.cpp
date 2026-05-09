@@ -9,32 +9,25 @@ Event::~Event() {
     delete entities;
 }
 
-void Event::keyboardSwitch(sf::Event event) {
+void Event::playerMove() {
 
-    switch (event.key.code)
-    {
-    case sf::Keyboard::W:
-        std::cout << "W\n";
-        entities->player.moveUp();
-        break;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        entities->player.update(entities->player.moveUp());
+        return;
+    }
 
-    case sf::Keyboard::S:
-        std::cout << "S\n";
-        entities->player.moveDown();
-        break;
-
-    case sf::Keyboard::A:
-        std::cout << "A\n";
-        entities->player.moveLeft();
-        break;
-
-    case sf::Keyboard::D:
-        std::cout << "D\n";
-        entities->player.moveRight();
-        break;
-
-    default:
-        std::cout << "default";
-        break;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        entities->player.update(entities->player.moveDown());
+        return;
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        entities->player.update(entities->player.moveLeft());
+        return;
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        entities->player.update(entities->player.moveRight());
+        return;
     }
 }
