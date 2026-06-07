@@ -25,11 +25,12 @@ To actualy develop something playable I had to learn:
 
 1. clone the repo:
   git clone https://github.com/reyjaz007/simpleFactory2d.git
-2. Install and include the SMFL:
+2. Install on your computer the ninja build system
+3. Install and include the SMFL:
    https://www.sfml-dev.org/download/sfml/3.0.2/ <--- Download the 64-bit version
    Paste it on the folder called:  external/
-3. Run de CMkeList.txt file 
-4. And you are ready to go!
+4. Run de CMkeList.txt file 
+5. And you are ready to go!
 
 ## Proyect State
 

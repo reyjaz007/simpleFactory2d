@@ -1,23 +1,26 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.11)
 project(simpleFactory2d VERSION 0.1.0 LANGUAGES CXX)
 
-set(SFML_STATIC_LIBRARIES ON)
+include(FetchContent)
 
-# Integrar mingw64
-set(mingw64_DIR "${CMAKE_SOURCE_DIR}/external/mingw64")
-set(CMAKE_PREFIX_PATH "${mingw64_DIR}/lib/cmake" ${CMAKE_PREFIX_PATH})
-set(CMAKE_PROGRAM_PATH "${mingw64_DIR}/bin" ${CMAKE_PROGRAM_PATH})
-
-# Configurar compilador de mingw64
-set(CMAKE_CXX_COMPILER "${mingw64_DIR}/bin/g++.exe")
-set(CMAKE_C_COMPILER "${mingw64_DIR}/bin/gcc.exe")
-set(CMAKE_MAKE_PROGRAM "${mingw64_DIR}/bin/mingw32-make.exe" CACHE FILEPATH "Make program")
-
-# Find SFML
-set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML/lib/cmake/SFML")
-
-find_package(SFML 3.0.2 COMPONENTS Graphics Window System REQUIRED)
-
+if(WIN32)
+    set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML/SFML-3.0.2/lib/cmake/SFML")
+    find_package(SFML 3.0.2 COMPONENTS Graphics Window System REQUIRED)
+else()
+    find_package(SFML 3 COMPONENTS Graphics Window System)
+    if(NOT SFML_FOUND)
+        message(STATUS "SFML not found on system. Downloading and building SFML from source...")
+        FetchContent_Declare(
+            sfml
+            GIT_REPOSITORY https://github.com/SFML/SFML.git
+            GIT_TAG 3.0.2
+        )
+        set(SFML_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+        set(SFML_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+        set(SFML_BUILD_DOC OFF CACHE BOOL "" FORCE)
+        FetchContent_MakeAvailable(sfml)
+    endif()
+endif()
 
 add_executable(simpleFactory2d
     src/main/main.cpp
@@ -31,26 +34,22 @@ add_executable(simpleFactory2d
     src/logic/movement/movement.cpp
 )
 
-# Agregar rutas de include de SFML
-target_include_directories(simpleFactory2d PRIVATE "${CMAKE_SOURCE_DIR}/external/SFML/include")
-
-# Link SFML libraries
-
-target_link_libraries(simpleFactory2d
+target_link_libraries(simpleFactory2d PRIVATE
     SFML::Graphics
     SFML::Window
     SFML::System
 )
 
-#copy assets to build directory
-
 file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY
-    ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-graphics-3.dll
-    ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-window-3.dll
-    ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-system-3.dll
-    ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libgcc_s_seh-1.dll
-    ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libstdc++-6.dll
-    ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libwinpthread-1.dll
-    DESTINATION ${CMAKE_BINARY_DIR}
-)
+
+if(WIN32)
+    file(COPY
+        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-graphics-3.dll
+        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-window-3.dll
+        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-system-3.dll
+        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libgcc_s_seh-1.dll
+        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libstdc++-6.dll
+        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libwinpthread-1.dll
+        DESTINATION ${CMAKE_BINARY_DIR}
+    )
+endif()
