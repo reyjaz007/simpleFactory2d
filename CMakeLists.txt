@@ -1,55 +1,32 @@
 cmake_minimum_required(VERSION 3.11)
-project(simpleFactory2d VERSION 0.1.0 LANGUAGES CXX)
+project(simpleFactory2d VERSION 0.2.0 LANGUAGES CXX)
 
-include(FetchContent)
+set(SDL3_VERSION "3.0")
 
-if(WIN32)
-    set(SFML_DIR "${CMAKE_SOURCE_DIR}/external/SFML/SFML-3.0.2/lib/cmake/SFML")
-    find_package(SFML 3.0.2 COMPONENTS Graphics Window System REQUIRED)
-else()
-    find_package(SFML 3 COMPONENTS Graphics Window System)
-    if(NOT SFML_FOUND)
-        message(STATUS "SFML not found on system. Downloading and building SFML from source...")
-        FetchContent_Declare(
-            sfml
-            GIT_REPOSITORY https://github.com/SFML/SFML.git
-            GIT_TAG 3.0.2
-        )
-        set(SFML_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-        set(SFML_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-        set(SFML_BUILD_DOC OFF CACHE BOOL "" FORCE)
-        FetchContent_MakeAvailable(sfml)
+# Find or download SDL from a suitable location
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    # On Linux, use apt-get or another package manager to fetch SDL Libraries
+    find_package(SDL3 REQUIRED)
+
+    if (NOT SDL3_FOUND)
+        message(FATAL_ERROR "Unable to find SDL3 on your system. Install it using your package manager.")
     endif()
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    # On Windows, we can use a pre-compiled SDL library stored in the project directory
+    set(SDL3_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/SDL3/include)
+    set(SDL3_LIBRARY ${CMAKE_SOURCE_DIR}/external/SDL3/lib/x86/SDL3.lib)
+    include_directories(${SDL3_INCLUDE_DIR})
 endif()
 
-add_executable(simpleFactory2d
-    src/main/main.cpp
+add_executable(${PROJECT_NAME}
+    src/main.cpp
     src/game/simpleFactory.cpp
-    src/platform/sfmlWindow.cpp
-    src/entities/primitive/entity.cpp
-    src/entities/player/player.cpp
-    src/entities/handlers/entitiesHandler.cpp
-    src/entities/primitive/tile.cpp
-    src/logic/event.cpp
-    src/logic/movement/movement.cpp
+    src/platform/sdlWindow.cpp
 )
 
-target_link_libraries(simpleFactory2d PRIVATE
-    SFML::Graphics
-    SFML::Window
-    SFML::System
-)
-
-file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
-
-if(WIN32)
-    file(COPY
-        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-graphics-3.dll
-        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-window-3.dll
-        ${CMAKE_SOURCE_DIR}/external/SFML/bin/sfml-system-3.dll
-        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libgcc_s_seh-1.dll
-        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libstdc++-6.dll
-        ${CMAKE_SOURCE_DIR}/external/mingw64/bin/libwinpthread-1.dll
-        DESTINATION ${CMAKE_BINARY_DIR}
-    )
+# Linking SDL libraries
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_link_libraries(${PROJECT_NAME} SDL3::SDL3)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    target_link_libraries(${PROJECT_NAME} ${SDL3_LIBRARY})
 endif()
