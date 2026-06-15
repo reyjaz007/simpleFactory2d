@@ -9,6 +9,7 @@
 
 #include "../platform/sdlWindow.hpp"
 #include "../platform/sdlContext.hpp"
+#include "../logic/sdlInput.hpp"
 
 class Game {
 public:
@@ -24,6 +25,8 @@ private:
     Context sdl;
 
     Window window {TITLE, WIDTH, HEIGHT};
+
+    Input input;
 
     void run();
 };

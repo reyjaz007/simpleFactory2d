@@ -21,12 +21,13 @@ void Game::run() {
     std::cout << "Entering main game loop..." << std::endl;
     bool isRunning = true;
     SDL_Event event;
-
+    
     while (isRunning) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_EVENT_QUIT) {
                 isRunning = false;
             }
+            if ()
         }
 
         window.clear();
