@@ -5,7 +5,6 @@
 
 //SDL
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
 
 #include "../platform/sdlWindow.hpp"
 #include "../platform/sdlContext.hpp"

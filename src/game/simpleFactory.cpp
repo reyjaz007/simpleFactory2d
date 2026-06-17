@@ -27,7 +27,6 @@ void Game::run() {
             if (event.type == SDL_EVENT_QUIT) {
                 isRunning = false;
             }
-            if ()
         }
 
         window.clear();

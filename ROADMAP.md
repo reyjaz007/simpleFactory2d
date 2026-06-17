@@ -31,7 +31,7 @@ Terminar la base técnica mínima antes de avanzar a mecánicas de juego.
 
 - [ ] Actualizar documentación para reflejar SDL3 en lugar de SFML
 - [ ] Limpiar y verificar el `CMakeLists.txt`
-- [ ] Confirmar que `src/platform/sdlContext.hpp` y `src/platform/sdlWindow.*` funcionan en Linux y Windows
+- [x] Confirmar que `src/platform/sdlContext.hpp` y `src/platform/sdlWindow.*` funcionan en Linux y Windows
 
 ### 0.2 Estructura de entidades mínima
 **Prioridad:** 🔴 CRÍTICA  

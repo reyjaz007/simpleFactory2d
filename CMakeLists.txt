@@ -14,7 +14,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     # On Windows, we can use a pre-compiled SDL library stored in the project directory
     set(SDL3_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/SDL3/include)
-    set(SDL3_LIBRARY ${CMAKE_SOURCE_DIR}/external/SDL3/lib/x86/SDL3.lib)
+    set(SDL3_LIBRARY ${CMAKE_SOURCE_DIR}/external/SDL3/lib/x64/SDL3.lib)
     include_directories(${SDL3_INCLUDE_DIR})
 endif()
 
@@ -22,6 +22,7 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/game/simpleFactory.cpp
     src/platform/sdlWindow.cpp
+    src/logic/sdlInput.cpp
 )
 
 # Linking SDL libraries

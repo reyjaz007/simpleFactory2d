@@ -8,11 +8,12 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 CMakeUserPresets.json
-CMakePresets.json
+src/CMakePresets.json
 
 #libs
 /external/SFML/
 /external/mingw64/
+/external/SDL3/
 
 # C++ build outputs
 *.exe
