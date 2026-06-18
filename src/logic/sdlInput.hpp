@@ -7,7 +7,7 @@ public:
     Input();
     ~Input();
 
-    void update();
+    bool update();
 
     bool isKeyDown(SDL_Scancode key) const;
 
@@ -18,7 +18,7 @@ public:
     bool isKeyReleased(SDL_Scancode key) const;
 
 private:
-    void inputCase();
+    void inputCase(bool& isRunning);
 
     bool currentKeys[SDL_SCANCODE_COUNT]{};
 

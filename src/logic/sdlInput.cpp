@@ -10,7 +10,9 @@ Input::Input() {
 Input::~Input() {
 }  
 
-void Input::update() {
+bool Input::update() {
+    bool isRunning = true;
+
     std::copy(
         currentKeys,
         currentKeys + SDL_SCANCODE_COUNT,
@@ -19,7 +21,7 @@ void Input::update() {
 
     SDL_PumpEvents();
 
-    inputCase();
+    inputCase(isRunning);
     
     const bool* keyboard = SDL_GetKeyboardState(nullptr);
 
@@ -28,6 +30,8 @@ void Input::update() {
         keyboard + SDL_SCANCODE_COUNT,
         currentKeys
     );
+
+    return isRunning;
 }
 
 bool Input::isKeyDown(SDL_Scancode key) const {
@@ -46,13 +50,13 @@ bool Input::isKeyReleased(SDL_Scancode key) const {
     return !currentKeys[key] && previousKeys[key];
 }
 
-void Input::inputCase() {
+void Input::inputCase(bool& isRunning) {
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_EVENT_QUIT) {
             std::cout << "Quit event received. Exiting game loop..." << std::endl;
-            exit(0);
+            isRunning = false;
         }
     }  
 }
