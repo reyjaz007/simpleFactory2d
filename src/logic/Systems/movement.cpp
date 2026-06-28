@@ -2,11 +2,9 @@
 
 #include "collision.hpp"
 
-Movement::Movement() {
-}
+Movement::Movement() {}
 
-Movement::~Movement() {
-}
+Movement::~Movement() {}
 
 void Movement::setSpeed(int speed){
     this->speed = speed;

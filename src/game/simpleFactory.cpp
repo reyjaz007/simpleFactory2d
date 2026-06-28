@@ -9,26 +9,24 @@
 #include "simpleFactory.hpp"
 
 Game::Game() {
-    std::cout << "Initializing game..." << std::endl;
+    Game::init();
     Game::run();
 }
 
-Game::~Game() {
-    std::cout << "Cleaning up game resources..." << std::endl;
+Game::~Game() {}
+
+void Game::init(){
+    render.setRenderer(*window.getRenderer());
 }
 
 void Game::run() {
-    std::cout << "Entering main game loop..." << std::endl;
-    if (!render.load(window.getRenderer(), "assets/noTexture.png")) {
-        std::cerr << "Failed to load texture. Exiting game loop." << std::endl;
-        return;
-    }
-
-    while (input.update()) {      
+    while (events.update()) {      
         window.clear();
-
-        render.draw(window.getRenderer(), 0, 0);
-
+        Game::update();
         window.present();
     }
+}
+
+void Game::update() {
+    render.draw();
 }

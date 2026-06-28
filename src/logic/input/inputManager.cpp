@@ -1,28 +1,21 @@
-#include "sdlInput.hpp"
+#include "inputManager.hpp"
 
-#include <iostream>
 #include <algorithm>
-#include <stdexcept>
 
-Input::Input() {
-}
 
-Input::~Input() {
-}  
+Input::Input() {}
 
-bool Input::update() {
-    bool isRunning = true;
+Input::~Input() {}
 
+void Input::update() {
     std::copy(
         currentKeys,
         currentKeys + SDL_SCANCODE_COUNT,
         previousKeys
     );
-
+    
     SDL_PumpEvents();
 
-    inputCase(isRunning);
-    
     const bool* keyboard = SDL_GetKeyboardState(nullptr);
 
     std::copy(
@@ -30,8 +23,6 @@ bool Input::update() {
         keyboard + SDL_SCANCODE_COUNT,
         currentKeys
     );
-
-    return isRunning;
 }
 
 bool Input::isKeyDown(SDL_Scancode key) const {
@@ -48,15 +39,4 @@ bool Input::isKeyPressed(SDL_Scancode key) const {
 
 bool Input::isKeyReleased(SDL_Scancode key) const {
     return !currentKeys[key] && previousKeys[key];
-}
-
-void Input::inputCase(bool& isRunning) {
-    SDL_Event event;
-
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_EVENT_QUIT) {
-            std::cout << "Quit event received. Exiting game loop..." << std::endl;
-            isRunning = false;
-        }
-    }  
 }

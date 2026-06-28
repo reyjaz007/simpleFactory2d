@@ -2,17 +2,20 @@
 
 #include <SDL3/SDL.h>
 
-#include <string>
+#include "textureManager.hpp"
 
 class Render{
 public:
     Render();
     ~Render();
 
-    bool load(SDL_Renderer* renderer);
-    void draw(SDL_Renderer* renderer);
+    void setRenderer(SDL_Renderer& renderer);
+    void setTextureManager(Textures& textureManager);
+
+    void draw();
 
 private:
-    void loadTexture(SDL_Renderer* renderer, const std::string& path);
+    SDL_Renderer* renderer;
+    Textures* textures;
 
 };

@@ -38,9 +38,9 @@ Window::~Window() {
 void Window::clear() {
     SDL_SetRenderDrawColor(
         renderer,
-        255,
-        255,
-        255,
+        0,
+        0,
+        0,
         255
     );
 

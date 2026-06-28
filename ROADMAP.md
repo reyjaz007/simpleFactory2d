@@ -37,9 +37,9 @@ Terminar la base técnica mínima antes de avanzar a mecánicas de juego.
 **Prioridad:** 🔴 CRÍTICA  
 **Tiempo estimado:** 2-3 días
 
-- [x] Implementar `Entity` base en `src/entities/primitive/entity.hpp/cpp`
+- [ ] Implementar `Entity` base en `src/entities/primitive/entity.hpp/cpp`
 - [ ] Definir `Tile` simple en `src/entities/primitive/tile.hpp/cpp`
-- [x] Crear `Player` básico en `src/entities/player/` con movimiento
+- [ ] Crear `Player` básico en `src/entities/player/` con movimiento
 - [ ] Añadir `Entity` y `Tile` al ciclo de juego para pruebas
 
 ### 0.3 Renderizado de prueba
@@ -48,7 +48,7 @@ Terminar la base técnica mínima antes de avanzar a mecánicas de juego.
 **Tiempo estimado:** 2 días
 
 - [x] Renderizar un rectángulo o sprite de prueba en pantalla
-- [x] Añadir colores básicos y clear/present en el renderer
+- [ ] Añadir colores básicos y clear/present en el renderer
 - [x] Validar dimensiones y escalado de ventana
 
 ### 0.4 Input y loop de actualización
@@ -56,7 +56,7 @@ Terminar la base técnica mínima antes de avanzar a mecánicas de juego.
 **Dependencias:** 0.2  
 **Tiempo estimado:** 1-2 días
 
-- [ ] Capturar eventos de teclado en `Game::run`
+- [x] Capturar eventos de teclado en `Game::run`
 - [ ] Mover una entidad `Player` con flechas/WASD
 - [ ] Usar `deltaTime` para movimiento consistente
 - [ ] Preparar base para futuros sistemas de input y animación

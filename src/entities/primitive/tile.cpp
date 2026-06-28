@@ -1,10 +1,8 @@
 #include "tile.hpp"
 
-Tile::Tile() {
-}
+Tile::Tile() {}
 
-Tile::~Tile() {
-}
+Tile::~Tile() {}
 
 bool Tile::isSolid() const {
     return solid;

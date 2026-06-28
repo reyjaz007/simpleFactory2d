@@ -26,10 +26,10 @@ endif()
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/game/simpleFactory.cpp
-    src/platform/sdlWindow.cpp
-    src/logic/sdlInput.cpp
-    src/UI/mainMenu.hpp
-    src/platform/rendering/testrender.cpp
+    src/platform/window/sdlWindow.cpp
+    src/platform/events/sdlEvents.cpp
+    src/platform/rendering/renderManager.cpp
+    src/platform/rendering/textureManager.cpp
 )
 
 # Linking SDL libraries
@@ -40,6 +40,13 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     )
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     target_link_libraries(${PROJECT_NAME} ${SDL3_LIBRARY} ${SDL3_IMAGE_LIBRARY})
+
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_SOURCE_DIR}/external/SDL3/lib/x64/SDL3.dll
+        ${CMAKE_SOURCE_DIR}/external/SDL3_image/lib/x64/SDL3_image.dll
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>
+    )
 endif()
 
 #copy assets to build directory
@@ -47,3 +54,4 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets
 )
+

@@ -1,0 +1,15 @@
+#pragma once
+
+/*enum class Resolution {
+    HD,  // 1280 × 720
+    FHD, // 1920 × 1080
+    QHD, // 2560 × 1440
+    UHD  // 3840 × 2160
+};*/
+
+enum class AssetsID {
+    Player,
+    Tiles,
+    NoTexture
+};
+

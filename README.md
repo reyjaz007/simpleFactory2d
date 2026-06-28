@@ -31,8 +31,8 @@ git clone https://github.com/reyjaz007/simpleFactory2d.git
 cd simpleFactory2d
 `
 2. Install dependencies.
-   - On Linux, install SDL3 via your package manager.
-   - On Windows, place SDL3 headers and libraries under `external/SDL3` as expected by `CMakeLists.txt`.
+   - On Linux, install SDL3/SDL3_image via your package manager.
+   - On Windows, place SDL3/SDL3_image headers and libraries under `external/` as expected by `CMakeLists.txt`.
 3. Build the project:
    `bash
 mkdir -p build

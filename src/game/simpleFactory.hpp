@@ -6,10 +6,10 @@
 //SDL
 #include <SDL3/SDL.h>
 
-#include "../platform/sdlWindow.hpp"
-#include "../platform/sdlContext.hpp"
-#include "../logic/sdlInput.hpp"
-#include "../platform/rendering/testrender.cpp"
+#include "../platform/window/sdlWindow.hpp"
+#include "../platform/window/sdlContext.hpp"
+#include "../platform/events/sdlEvents.hpp"
+#include "../platform/rendering/renderManager.hpp"
 
 class Game {
 public:
@@ -26,9 +26,12 @@ private:
 
     Window window {TITLE, WIDTH, HEIGHT};
 
-    Input input {};
+    Events events {};
 
     Render render {};
     
+    void init();
     void run();
+    void update();
+
 };
