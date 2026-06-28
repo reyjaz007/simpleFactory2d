@@ -10,6 +10,7 @@
 #include "../platform/window/sdlContext.hpp"
 #include "../platform/events/sdlEvents.hpp"
 #include "../platform/rendering/renderManager.hpp"
+#include "../platform/rendering/textureManager.hpp"
 
 class Game {
 public:
@@ -29,6 +30,8 @@ private:
     Events events {};
 
     Render render {};
+
+    Textures textures {};
     
     void init();
     void run();

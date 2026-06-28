@@ -2,6 +2,7 @@
 
 #include <SDL3/SDL.h>
 
+#include "../../assets/assetsID.hpp"
 #include "textureManager.hpp"
 
 class Render{
@@ -12,7 +13,7 @@ public:
     void setRenderer(SDL_Renderer& renderer);
     void setTextureManager(Textures& textureManager);
 
-    void draw();
+    void draw(AssetsID id);
 
 private:
     SDL_Renderer* renderer;
