@@ -12,8 +12,8 @@ public:
     ~Player();
 
     void testmoveR ();
-    void setInputs(Input input);
-    void update();
+    void setInputs(Input& input);
+    void update(float deltaTime);
 
     int getX();
     int getY();

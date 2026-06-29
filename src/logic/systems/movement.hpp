@@ -7,8 +7,8 @@ public:
     Movement();
     ~Movement();
 
-    void setSpeed(int speed);
-    void setDeltaTime(double deltaTime);
+    void setSpeed(float speed);
+    void setDeltaTime(float deltaTime);
     
     void moveRight(Collision& collision);
     void moveLeft(Collision& collision);
@@ -16,6 +16,6 @@ public:
     void moveDown(Collision& collision);
 
 private:
-    int speed;
-    double deltaTime;
+    float speed;
+    float deltaTime;
 };

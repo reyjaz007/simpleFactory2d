@@ -1,17 +1,19 @@
 #include "player.hpp"
 
+#include  <iostream>
+
 Player::Player() : Entity {0} {
     movement.setSpeed(100);
-    movement.setDeltaTime(0.019999);
 }
 
 Player::~Player() {}
 
-void Player::setInputs(Input input) {
+void Player::setInputs(Input& input) {
     movement.setInputs(input);
 }
 
-void Player::update() {
+void Player::update(float deltaTime) {
+    movement.setDeltaTime(deltaTime);
     movement.update(collision);
 }
 

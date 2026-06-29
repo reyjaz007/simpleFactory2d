@@ -19,11 +19,11 @@ Game::~Game() {}
 void Game::init(){
     render.setRenderer(*window.getRenderer());
     render.setTextureManager(textures);
-    player.setInputs(input);
+    player.setInputs(input);  
 }
 
 void Game::run() {
-    while (events.update()) {      
+    while (events.update()) {  
         window.clear();
         Game::update();
         window.present();
@@ -31,10 +31,9 @@ void Game::run() {
 }
 
 void Game::update() {
+    timer.update();
+    std::cout << timer.getDeltaTime() << std::endl;
     input.update();
-    if (input.isKeyDown(SDL_SCANCODE_D)){
-        player.testmoveR();
-    }
     render.draw(AssetsID(player.getID()), static_cast<float>(player.getX()), static_cast<float>(player.getY()));
-    player.update();
+    player.update(timer.getDeltaTime());
 }

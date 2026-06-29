@@ -6,6 +6,8 @@
 //SDL
 #include <SDL3/SDL.h>
 
+#include "../core/timer/timer.hpp"
+
 #include "../entities/player.hpp"
 
 #include "../logic/input/inputManager.hpp"
@@ -40,6 +42,8 @@ private:
     Textures textures {};
     
     Player player {};
+
+    Timer timer {};
 
     void init();
     void run();

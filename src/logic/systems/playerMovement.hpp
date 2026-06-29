@@ -10,7 +10,7 @@ public:
     ~PlayerMovement();
 
     void setInputs(Input& input);
-    void update(Collision collision);
+    void update(Collision& collision);
 
 private:
     Input* input;

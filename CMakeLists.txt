@@ -26,6 +26,7 @@ endif()
 add_executable(${PROJECT_NAME}
     src/main.cpp
     src/game/simpleFactory.cpp
+    src/core/timer/timer.cpp
     src/platform/window/sdlWindow.cpp
     src/platform/events/sdlEvents.cpp
     src/platform/rendering/renderManager.cpp

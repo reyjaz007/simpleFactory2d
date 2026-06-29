@@ -6,11 +6,11 @@ Movement::Movement() {}
 
 Movement::~Movement() {}
 
-void Movement::setSpeed(int speed){
+void Movement::setSpeed(float speed){
     this->speed = speed;
 }
 
-void Movement::setDeltaTime(double deltaTime){
+void Movement::setDeltaTime(float deltaTime){
     this->deltaTime = deltaTime;
 }
 

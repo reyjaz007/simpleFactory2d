@@ -16,10 +16,10 @@ void Collision::setXYPosition(int x, int y){
     this->y = y;
 }
 
-void Collision::setXPosition(int x){
+void Collision::setXPosition(float x){
     this->x = x;
 }
 
-void Collision::setYPosition(int y){
+void Collision::setYPosition(float y){
     this->y = y;
 }
