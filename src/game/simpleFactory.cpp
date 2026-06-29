@@ -6,7 +6,7 @@
 //SDL
 #include <SDL3/SDL.h>
 
-#include "../assets/assetsID.hpp"
+#include "../core/ids/assetsID.hpp"
 #include "simpleFactory.hpp"
 
 Game::Game() {
@@ -30,5 +30,5 @@ void Game::run() {
 }
 
 void Game::update() {
-    render.draw(AssetsID(0));
+    render.draw(AssetsID(2), 10, 10);
 }

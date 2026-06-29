@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "../../assets/assetsPath.hpp"
+#include "../../core/paths/assetsPath.hpp"
 
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>

@@ -48,7 +48,7 @@ Terminar la base técnica mínima antes de avanzar a mecánicas de juego.
 **Tiempo estimado:** 2 días
 
 - [x] Renderizar un rectángulo o sprite de prueba en pantalla
-- [ ] Añadir colores básicos y clear/present en el renderer
+- [x] Añadir colores básicos y clear/present en el renderer
 - [x] Validar dimensiones y escalado de ventana
 
 ### 0.4 Input y loop de actualización

@@ -4,10 +4,12 @@
 
 class Entity {
 public:
-    Entity();
+    Entity(int ID);
     ~Entity();
 
 protected:
-    Collision Collision {};
+    int ID;
+
+    Collision collision {};
 
 };

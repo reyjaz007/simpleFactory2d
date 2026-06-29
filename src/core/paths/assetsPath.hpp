@@ -2,7 +2,7 @@
 
 #include <unordered_map>
 #include <string>
-#include "assetsID.hpp"
+#include "../ids/assetsID.hpp"
 
 const std::unordered_map<AssetsID, std::string> AssetsPath = {
     {AssetsID::Player,  "assets/entities/player.png"},
