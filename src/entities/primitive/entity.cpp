@@ -5,3 +5,7 @@ Entity::Entity(const int ID) {
 }
 
 Entity::~Entity() {}
+
+int Entity::getID(){
+    return ID;
+}

@@ -30,6 +30,13 @@ add_executable(${PROJECT_NAME}
     src/platform/events/sdlEvents.cpp
     src/platform/rendering/renderManager.cpp
     src/platform/rendering/textureManager.cpp
+    src/entities/primitive/entity.cpp
+    src/entities/player.cpp
+    src/logic/systems/playerMovement.cpp
+    src/logic/systems/collision.cpp
+    src/logic/systems/movement.cpp
+    src/logic/systems/health.cpp
+    src/logic/input/inputManager.cpp
 )
 
 # Linking SDL libraries

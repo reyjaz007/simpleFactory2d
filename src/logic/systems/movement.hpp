@@ -9,7 +9,7 @@ public:
 
     void setSpeed(int speed);
     void setDeltaTime(double deltaTime);
-
+    
     void moveRight(Collision& collision);
     void moveLeft(Collision& collision);
     void moveUp(Collision& collision);

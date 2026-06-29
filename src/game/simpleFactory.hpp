@@ -6,6 +6,10 @@
 //SDL
 #include <SDL3/SDL.h>
 
+#include "../entities/player.hpp"
+
+#include "../logic/input/inputManager.hpp"
+
 #include "../platform/window/sdlWindow.hpp"
 #include "../platform/window/sdlContext.hpp"
 #include "../platform/events/sdlEvents.hpp"
@@ -29,10 +33,14 @@ private:
 
     Events events {};
 
+    Input input {};
+
     Render render {};
 
     Textures textures {};
     
+    Player player {};
+
     void init();
     void run();
     void update();

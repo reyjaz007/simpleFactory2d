@@ -1,15 +1,18 @@
 #pragma once 
 
-#include "../../logic/Systems/collision.hpp"
+#include "../../logic/systems/collision.hpp"
 
 class Entity {
 public:
     Entity(int ID);
     ~Entity();
 
-protected:
-    int ID;
+    int getID();
 
-    Collision collision {};
+protected:
+    Collision collision {0,0,0,0};
+
+private:
+    int ID;
 
 };
