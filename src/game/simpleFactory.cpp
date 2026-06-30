@@ -32,7 +32,6 @@ void Game::run() {
 
 void Game::update() {
     timer.update();
-    std::cout << timer.getDeltaTime() << std::endl;
     input.update();
     render.draw(AssetsID(player.getID()), static_cast<float>(player.getX()), static_cast<float>(player.getY()));
     player.update(timer.getDeltaTime());
